@@ -29,6 +29,14 @@ Local deploy
 .. note::
    If you have chosen different name for virtualenv directory or using python other than 2.7
    then you should modify file movies/settings/local.py and set correct values for variables ENV_PATH and PYTHON_PATHNAME
+   
+   For example:
+   
+   1. You have created virtual env in ".venv" directory
+   2. Your python version is 2.6
+   3. You should add this lines to movies/settings/local.py::
+         ENV_PATH = ".venv"
+         PYTHON_PATHNAME = "python2.6"
 
 5. To run server on localhost:8000::
 
