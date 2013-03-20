@@ -30,6 +30,7 @@ Local deploy
      (.env)user@home ~/kava/movies_template $ 
 
    example of not activated virtualenv:
+
      imp@home ~/kava/movies_template $ 
    
 5. Run following commands::
