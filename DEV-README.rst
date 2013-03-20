@@ -18,9 +18,19 @@ Local deploy
 3. Create virtualenv::
 
      virtualenv --no-site-packages -p python2.7 .env
+
+4. Activate virtualenv::
      source .env/bin/activate
 
-4. Run following commands::
+.. note::
+   virtual env should be activated when you try to run project. To check if it is activated you should just look at you commandline greetings. Example of activated virtualenv::
+
+     (.env)user@home ~/kava/movies_template $ 
+
+   example of not activated virtualenv:
+     imp@home ~/kava/movies_template $ 
+   
+5. Run following commands::
 
      pip install -r requirements/dev.txt 
      if ! python -V 2>&1| grep -q " 2.7" ; then pip install ordereddict ; fi
@@ -40,7 +50,7 @@ Local deploy
          ENV_PATH = ".venv"
          PYTHON_PATHNAME = "python2.6"
 
-5. To run server on localhost:8000::
+6. run server on localhost:8000::
 
      make run
 
