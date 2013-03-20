@@ -1,7 +1,6 @@
 #!/bin/sh
 
-SCRIPT_PATH=`readlink -f $0`
-SCRIPT_ROOT=`dirname $SCRIPT_PATH`
+SCRIPT_ROOT=`dirname $0`
 PROJ_ROOT=`dirname $SCRIPT_ROOT`
 
 SCRIPT_PATH=$SCRIPT_ROOT/less/bin/lessc
