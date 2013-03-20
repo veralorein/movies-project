@@ -18,6 +18,7 @@ Local deploy
 3. Create virtualenv::
 
      virtualenv --no-site-packages -p python2.7 .env
+     source .env/bin/activate
 
 4. Run following commands::
 
