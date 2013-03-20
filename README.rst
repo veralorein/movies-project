@@ -22,6 +22,7 @@ Next steps describe project installation on staging or production server. If you
      PROJ_NAME=movies
      cp Makefile.def.default Makefile.def
      cp $PROJ_NAME/settings/local.py.default $PROJ_NAME/settings/local.py
+     if ! python -V 2>&1| grep -q " 2.7" ; then pip install ordereddict ; fi
      # for postgres:
      pip install -r requirements/postgre.txt
      # for sqlite:

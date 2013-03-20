@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
-from collections import OrderedDict
+try:
+    from collections import OrderedDict
+except ImportError:
+    from ordereddict import OrderedDict
 from django.contrib.sites.models import Site
 from django.core.urlresolvers import resolve
 from django.utils.translation import ugettext_lazy as _

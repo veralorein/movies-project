@@ -22,6 +22,7 @@ Local deploy
 4. Run following commands::
 
      pip install -r requirements/dev.txt 
+     if ! python -V 2>&1| grep -q " 2.7" ; then pip install ordereddict ; fi
      cp Makefile.def.default Makefile.def
      cp movies/settings/local.py.default movies/settings/local.py
      make initproject
