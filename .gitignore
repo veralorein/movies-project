@@ -3,6 +3,7 @@
 #
 
 .*
+*.sublime-*
 *~
 *.py[co]
 *.ipr
