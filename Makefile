@@ -14,7 +14,7 @@ TEST_APP=core
 
 runserver:
 	@echo Starting $(PROJECT_NAME) ...
-	IS_DEV=1 $(MANAGE) runserver $(BIND_TO):$(RUNSERVER_PORT)
+	IS_DEV=1 $(MANAGE) runserver --noreload $(BIND_TO):$(RUNSERVER_PORT)
 
 run: runserver compress
 

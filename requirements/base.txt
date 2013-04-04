@@ -4,7 +4,7 @@ wsgiref
 sorl-thumbnail
 pillow
 django-annoying
-django-compressor==1.2
+django-compressor==1.3
 lxml
 BeautifulSoup<4.0
 Pinax
