@@ -63,6 +63,10 @@ class Movie(ImagedModel, DummyUrlMixin, TitleSlugifyMixin):
         return self.title
 
     def get_image_playable(self):
+        """Find first existing image or trailer for Movie and return:
+        (image, is_playable)
+        is_playable is True for trailers and is False for images
+        """
         if self.trailer_set.all().count():
             trailer = self.trailer_set.all()[0]
             return (trailer.image, trailer.get_url())
@@ -73,6 +77,9 @@ class Movie(ImagedModel, DummyUrlMixin, TitleSlugifyMixin):
         return None, False
 
     def get_image(self):
+        """Find first existing image or trailer for Movie and return it
+
+        """
         if self.image:
             return self.image
         shots = self.movieshot_set.all()
@@ -81,6 +88,11 @@ class Movie(ImagedModel, DummyUrlMixin, TitleSlugifyMixin):
         return None
 
     def get_all_images_playable(self):
+        """ Find all images and trailers. And retunr list of 
+        (image_or_trailer, is_playable) tuples:
+        [(image1, False), (trailer1, True), (image2, False), ...]
+
+        """
         images = []
         if self.image:
             images.append((self.image, False))
@@ -94,6 +106,9 @@ class Movie(ImagedModel, DummyUrlMixin, TitleSlugifyMixin):
 
 
 class MovieShot(ImagedModel, DummyUrlMixin):
+    """Model with images for Movie
+
+    """
     movie = models.ForeignKey(Movie)
 
     def __unicode__(self):
@@ -101,6 +116,9 @@ class MovieShot(ImagedModel, DummyUrlMixin):
 
 
 class Trailer(ImagedModel, DummyUrlMixin):
+    """ Model with trailers for Movie. Actualy it stores images, because it's a "Fake"
+
+    """
     movie = models.ForeignKey(Movie)
 
     def __unicode__(self):
@@ -142,6 +160,10 @@ class NewsItem(models.Model, DummyUrlMixin, AutoProcessFieldsMixin):
             raise ValidationError(_(u"Please choose movie or image"))
 
     def get_image_playable(self):
+        """Find image for NewsItem and return (image, is_playable)
+        is_playable is True for trailers and is False for images
+
+        """
         if self.image:
             return (self.image, None)
         else:
@@ -149,6 +171,12 @@ class NewsItem(models.Model, DummyUrlMixin, AutoProcessFieldsMixin):
 
     @classmethod
     def get_short_text(cls, text):
+        """ This method calculates short text from `text`. Do not use it directly.
+        just access `self.short_text`
+
+        This method is called automatically on save to update `self.short_text`
+
+        """
         shorter = text[:cls.SHORT_TEXT_LENGTH]
         sane_limit = int(cls.SHORT_TEXT_LENGTH / 3)
         for char in cls.WORD_DELIMITERS:
