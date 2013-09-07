@@ -1,5 +1,5 @@
 -r sqlite.txt
-django-debug-toolbar
-coverage
-django-coverage
-factory_boy
+django-debug-toolbar==0.9.4
+coverage==3.6
+django-coverage==1.2.2
+factory_boy==1.2.0
