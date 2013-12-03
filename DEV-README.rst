@@ -50,6 +50,7 @@ Local deploy
    1. You have created virtual env in ".venv" directory
    2. Your python version is 2.6
    3. You should add this lines to movies/settings/local.py::
+
          ENV_PATH = ".venv"
          PYTHON_PATHNAME = "python2.6"
 
